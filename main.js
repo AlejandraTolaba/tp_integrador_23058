@@ -107,7 +107,7 @@ btn_resumen.addEventListener('click', validar);
 category.addEventListener('change',getSubtotal);
 btn_resumen.addEventListener('click', () => {
     // getSubtotal();
-    total = quantity.value * subtotal.toFixed(2);
+    total = quantity.value * (subtotal.toFixed(2));
     console.log(total);
     text_total.textContent = 'Total a Pagar: $'+total;
 });

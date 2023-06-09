@@ -181,6 +181,10 @@
     form .form-control, .footer ul{
         font-size: .8rem;
     }
+    
+    .w-main {
+      width: 70%;
+   }
 }
 
 /* @media (min-width: 576px){
