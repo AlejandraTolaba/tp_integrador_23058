@@ -120,6 +120,28 @@
     width: 100px;
 } 
 
+.w-main{
+    width: 60%;
+    margin: auto;
+    padding: 30px 15px;
+}
+
+.w-main .card-header{
+    font-size: larger;
+}
+
+.w-main .card-title{
+    font-weight: 600;
+}
+
+.w-main .card-text{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.w-main span{
+    color: grey;
+}
 @media only screen and (max-width: 767px) {
     .navbar-brand img{
         width: 80px;
