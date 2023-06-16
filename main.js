@@ -10,28 +10,38 @@ const quantity = document.querySelector('#inputQuantity');
 const category = document.querySelector('#inputCategory');
 const text_total = document.querySelector('.alert');
 
+const discount_E = 0.8;
+const discount_T = 0.5;
+const discount_J = 0.15;
+
 const ticket_value = 200;
 var total = 0;
 var subtotal;
+
 function getSubtotal(){
     subtotal = 0;
     console.log(subtotal);
     switch (category.value) {
         case 'E':
-            subtotal = ticket_value * (1 - 0.8);
-            console.log(subtotal);
+            subtotal = ticket_value * (1 - discount_E);
             break;
         case 'T':
-            subtotal = ticket_value * (1 - 0.5);
+            subtotal = ticket_value * (1 - discount_T);
             break;
         case 'J':
-            subtotal = ticket_value * (1 - 0.15);
+            subtotal = ticket_value * (1 - discount_J);
             break;
         default:
             subtotal = ticket_value;
             break;
     }
     
+}
+
+function getTotal(){
+    total = Math.round(quantity.value * subtotal);
+    // console.log(total);
+    text_total.textContent = 'Total a Pagar: $'+total;
 }
 
 function validar (e) {
@@ -100,17 +110,38 @@ function validar (e) {
         lastname_tooltip.classList.remove('d-block');
         input_email.classList.remove('is-invalid');
         email_tooltip.classList.remove('d-block');
+        getSubtotal();
+        getTotal();
     }
 }
 
+function removeClasses(e){
+    let elem = e.currentTarget;
+    let elem_id = e.currentTarget.id;
+    let tooltip = elem_id+'_tooltip';
+    elem.classList.remove('is-invalid');
+    switch (tooltip) {
+        case 'name_tooltip':
+            name_tooltip.classList.remove('d-block');
+            break;
+        case 'lastname_tooltip':
+            lastname_tooltip.classList.remove('d-block');
+            break;
+        case 'email_tooltip':
+            email_tooltip.classList.remove('d-block');
+            break;
+        default:
+            break;
+    }
+}
+
+input_name.addEventListener('input', removeClasses);
+input_lastname.addEventListener('input', removeClasses);
+input_email.addEventListener('input', removeClasses);
+
 btn_resumen.addEventListener('click', validar);
 category.addEventListener('change',getSubtotal);
-btn_resumen.addEventListener('click', () => {
-    // getSubtotal();
-    total = quantity.value * (subtotal.toFixed(2));
-    console.log(total);
-    text_total.textContent = 'Total a Pagar: $'+total;
-});
+// btn_resumen.addEventListener('click', getTotal);
 
 btn_reset.addEventListener('click', () =>{
     text_total.textContent = 'Total a Pagar: $';

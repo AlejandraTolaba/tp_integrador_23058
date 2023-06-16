@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar navbar-dark bg-dark navbar-expand-md">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.html">
                     <img src="imagenes/codoacodo.png" alt="logo">
                     Conf Bs As
                 </a>
@@ -83,24 +83,24 @@
                 <p class="mb-1">VENTA</p>
                 <h3 class="font-weight-bold mb-3">VENTA DE TICKET $200</h3>
             </div>
-            <form action="">
+            <form action="" class="comprar-ticket">
                 <div class="form-row">
                     <div class="col-md-6 col-sm-12 mb-3">
-                        <input type="text" class="form-control input-name" placeholder="Nombre">
+                        <input type="text" class="form-control input-name" id="name" placeholder="Nombre">
                         <div class="invalid-tooltip name-tooltip">
                             Por favor, escribí tu nombre.
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-12 mb-3">
-                      <input type="text" class="form-control input-lastname" placeholder="Apellido">
+                      <input type="text" class="form-control input-lastname" id="lastname" placeholder="Apellido">
                         <div class="invalid-tooltip lastname-tooltip">
                             Por favor, escribí tu apellido.
                         </div>
                     </div>
                 </div>
-                <div class="form-row mb-3">
-                    <div class="col">
-                        <input type="email" class="form-control input-email" placeholder="Email">
+                <div class="form-row">
+                    <div class="col-12 mb-3">
+                        <input type="email" class="form-control input-email" id="email" placeholder="Email">
                         <div class="invalid-tooltip email-tooltip">
                             Por favor, escribí tu email.
                         </div>
@@ -115,8 +115,8 @@
                     <div class="form-group col-md-6">
                       <label for="inputCategory">Categoría</label>
                       <select id="inputCategory" class="form-control">
-                        <option selected>-- Seleccione --</option>
-                        <option value="SC">Sin Categoría</option>
+                        <!-- <option selected>-- Seleccione --</option> -->
+                        <option value="SC" selected>Sin Categoría</option>
                         <option value="E">Estudiante</option>
                         <option value="T">Trainee</option>
                         <option value="J">Junior</option>
